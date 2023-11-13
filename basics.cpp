@@ -154,7 +154,7 @@ void badRawPointersOwnership() {
     // Ownership transfer is unclear.
 }
 
-// Smart Pointers Ownership
+// Smart Pointers Ownership learn
 void goodSmartPointersOwnership() {
     std::unique_ptr<int> ptr = std::make_unique<int>();
     // Ownership is clearly managed.
@@ -293,23 +293,12 @@ void goodRAII() {
 // Unused Code
 int badUnusedCode() {
     int x = 5;
-    return x * 2; // The result is not used.
+    return x * 2; // The result is not used. badUnusedCode();
 }
 
 int goodUnusedCode() {
     int x = 5;
-    return x * 2; // The result is used.
-}
-
-// Avoiding Global Variables
-int badGlobalVariableUsage() {
-    // Dependence on global state.
-    return badGlobalVariable;
-}
-
-int goodGlobalVariableUsage() {
-    int localVariable = 10; // Avoid using global state.
-    return localVariable;
+    return x * 2; // The result is used. bar = goodUnusedCode();
 }
 
 // Nested Loops
@@ -439,10 +428,6 @@ void goodAvoidingMutableLambdaCapture() {
     };
     lambda();
 }
-
-#include <iostream>
-#include <vector>
-#include <stdexcept>
 
 // Bad Comment
 void badComment() {
